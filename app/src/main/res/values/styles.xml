@@ -8,4 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Title">
+        <item name="android:textSize">@dimen/dimen_16</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:paddingBottom">@dimen/dimen_16</item>
+
+    </style>
+
 </resources>
