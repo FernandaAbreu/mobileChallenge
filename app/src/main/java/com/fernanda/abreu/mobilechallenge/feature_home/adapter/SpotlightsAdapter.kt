@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fernanda.abreu.mobilechallenge.R
 import com.fernanda.abreu.mobilechallenge.feature_home.repository.model.Spotlight
+import com.fernanda.abreu.mobilechallenge.util.ImageUtil
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_spotlight.view.*
 
@@ -35,11 +36,7 @@ class SpotlightsAdapter(private val spotlights: List<Spotlight>,
              val img = itemView.imgv_spotilight
              img.contentDescription=spotlight.name
              if (!spotlight.bannerURL.isNullOrBlank()) {
-                 Picasso
-                     .get()
-                     .load(spotlight.bannerURL)
-                     .error(R.drawable.ic_cloud_off_black_24dp)
-                     .into(img)
+                 ImageUtil.setImage(spotlight.bannerURL,img)
              }
          }
      }

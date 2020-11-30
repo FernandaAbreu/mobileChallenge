@@ -19,8 +19,8 @@ class HomeRepositoryTest {
             assertNotNull(result?.products)
             assertNotNull(result?.spotlight)
             assertNotNull(result?.cash)
-            assertFalse(result?.products!!.isEmpty())
-            assertFalse(result?.spotlight!!.isEmpty())
+            assertFalse(result?.products!!.isNullOrEmpty())
+            assertFalse(result?.spotlight!!.isNullOrEmpty())
 
         }
     }

@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fernanda.abreu.mobilechallenge.R
 import com.fernanda.abreu.mobilechallenge.feature_home.repository.model.Products
+import com.fernanda.abreu.mobilechallenge.util.ImageUtil
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.cash_cardview.*
 import kotlinx.android.synthetic.main.item_products.view.*
 
 class ProductsAdapter(private val products: List<Products>,
@@ -34,11 +36,7 @@ class ProductsAdapter(private val products: List<Products>,
              val img = itemView.imgv_product
              img.contentDescription=product.description
              if (!product.imageURL.isNullOrBlank()) {
-                 Picasso
-                     .get()
-                     .load(product.imageURL)
-                     .error(R.drawable.ic_cloud_off_black_24dp)
-                     .into(img)
+                 ImageUtil.setImage(product.imageURL,img)
              }
          }
      }

@@ -11,10 +11,24 @@
          android:layout_height="match_parent">
          
          <LinearLayout
+             android:id="@+id/llcontainer_main"
              android:orientation="vertical"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:visibility="gone"
              android:padding="@dimen/dimen_16">
+
+                 <TextView
+                     android:padding="@dimen/dimen_16"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:id="@+id/title_user"
+                     android:text="@string/hello_user"
+                     style="@style/Title"
+                     android:drawablePadding="10sp"
+                     android:drawableLeft="@drawable/ic_account_box_black_24dp"
+                     android:paddingTop="@dimen/dimen_16"
+                     ></TextView>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
@@ -24,6 +38,9 @@
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:paddingTop="@dimen/dimen_25"
                 android:paddingBottom="@dimen/dimen_16"
+                android:clipToPadding="false"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
                 ></androidx.recyclerview.widget.RecyclerView>
 
                 <include
@@ -47,6 +64,8 @@
                  android:orientation="horizontal"
                  app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                  android:paddingBottom="@dimen/dimen_16"
+                 android:paddingStart="12dp"
+                 android:paddingEnd="12dp"
                  ></androidx.recyclerview.widget.RecyclerView>
 
 
@@ -55,8 +74,9 @@
      </androidx.core.widget.NestedScrollView>
 
      <ProgressBar
+         android:id="@+id/progress_main"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
-         tools:visibility="gone"></ProgressBar>
+         tools:visibility="visible"></ProgressBar>
  </FrameLayout>

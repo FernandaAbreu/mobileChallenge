@@ -3,4 +3,6 @@
     <string name="products">Produtos</string>
     <string name="digio">digio</string>
     <string name="cash">Cash</string>
+    <string name="hello_user">Olá , Maria</string>
+    <string name="generic_error">Um erro aconteceu , tente novamente mis tarde</string>
 </resources>
