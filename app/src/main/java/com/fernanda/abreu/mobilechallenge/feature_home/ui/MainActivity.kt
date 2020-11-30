@@ -36,19 +36,27 @@ class MainActivity : AppCompatActivity() , KodeinAware {
         countingIdlingResource = CountingIdlingResource("MainActivity")
         setContentView(R.layout.activity_main)
         countingIdlingResource.increment()
-       setLoadingMode()
-         viewModel.fetchProducts().observe(this, Observer {
-            setSpotlights(it.spotlight)
-            setCash(it.cash)
-            setProducts(it.products)
-            progress_main.visibility= View.GONE
-            if(it.products.isEmpty() && it.spotlight.isEmpty() && it.cash==null){
-                showNoDataAlert()
-            }else{
-                setContentMode()
-            }
-            countingIdlingResource.decrement()
-        })
+        populateView()
+    }
+
+    private fun populateView() {
+        try {
+            setLoadingMode()
+            viewModel.fetchProducts().observe(this, Observer {
+                setSpotlights(it.spotlight)
+                setCash(it.cash)
+                setProducts(it.products)
+                progress_main.visibility = View.GONE
+                if (it.products.isEmpty() && it.spotlight.isEmpty() && it.cash == null) {
+                    showNoDataAlert()
+                } else {
+                    setContentMode()
+                }
+                countingIdlingResource.decrement()
+            })
+        }catch (e:Exception){
+            showNoDataAlert()
+        }
     }
 
     private fun setContentMode() {
@@ -61,7 +69,8 @@ class MainActivity : AppCompatActivity() , KodeinAware {
     }
 
     private fun showNoDataAlert() {
-        progress_main.visibility= View.GONE
+        llcontainer_main.visibility= View.GONE
+        progress_main.visibility = View.GONE
         Toast.makeText(this,getString(R.string.generic_error),Toast.LENGTH_LONG).show()
 
     }
